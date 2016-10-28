@@ -1,6 +1,8 @@
-package Library;
+package com.library.view;
 
 import java.awt.*;
+import Library.*;
+import com.library.model.*;
 import java.awt.event.*;
 
 import javax.swing.*; //javax.swing.JFrame;

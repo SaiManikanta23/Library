@@ -29,7 +29,7 @@ public class DlgAddBooks extends JDialog {
 	//private ImageIcon bookPic;
 	private Library library;
 	
-	DlgAddBooks(Library lib) {
+	public DlgAddBooks(Library lib) {
 		this.library = lib;
 		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

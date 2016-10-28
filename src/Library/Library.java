@@ -166,7 +166,7 @@ public class Library {
 		bookList.add(b);
 	}//add book
 	
-	void updateBook(String isbn, Book b){
+	public void updateBook(String isbn, Book b){
 		Iterator<Book> bookItr = bookList.iterator();
 		int index = -1;
 		while(bookItr.hasNext()){
@@ -179,7 +179,7 @@ public class Library {
 		}//end while
 	}//update book
 	
-	boolean deleteBook(String isbn){
+	public boolean deleteBook(String isbn){
 		Iterator<Book> bookItr = bookList.iterator();
 		int index = -1;
 		while(bookItr.hasNext()){
@@ -256,12 +256,12 @@ public class Library {
 		return userList;
 	}//show all user
 	
-	ArrayList<Book> showBookList_all(){
+	public ArrayList<Book> showBookList_all(){
 		
 		return bookList;
 	}//show all books
 	
-	ArrayList<Book> showBookList_rented(){
+	public ArrayList<Book> showBookList_rented(){
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
@@ -276,7 +276,7 @@ public class Library {
 		
 	}//
 	
-	ArrayList<Book> showBookList_remainder(){
+	public ArrayList<Book> showBookList_remainder(){
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
@@ -305,7 +305,7 @@ public class Library {
 	}
 	
 	
-	ArrayList<Book> showBookList_overdue(){
+	public ArrayList<Book> showBookList_overdue(){
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		ArrayList<Book> tempBookList = new ArrayList<Book>();

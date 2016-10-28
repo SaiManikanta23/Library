@@ -2,6 +2,8 @@ package Library;
 
 import javax.swing.*;
 import com.library.model.*;
+import com.library.view.*;
+import com.library.model.*;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;

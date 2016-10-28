@@ -1,4 +1,4 @@
-package Library;
+package com.library.view;
 
 import javax.swing.*;
 
@@ -24,7 +24,7 @@ public class DlgCustomerReturnBookFinish extends JDialog{
 
 	}
 	
-	DlgCustomerReturnBookFinish(double fine){
+	public DlgCustomerReturnBookFinish(double fine){
 		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLocation(350, 50);
