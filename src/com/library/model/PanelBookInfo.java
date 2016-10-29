@@ -11,7 +11,11 @@ import javax.swing.GroupLayout.*;
 import javax.swing.LayoutStyle.*;
 import javax.swing.border.*;
 
+<<<<<<< HEAD
 import com.library.controller.*;
+=======
+import Library.*;
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 
 
 /**
@@ -279,4 +283,34 @@ public class PanelBookInfo extends JPanel  {
 		return Category.CHILDREN;
 	}
 
+<<<<<<< HEAD
+=======
+	//Test
+//	public static void main(String args[]) {
+//		JFrame frm =new JFrame();
+//		frm.setSize(500,500);
+//		PanelBookInfo pn = new PanelBookInfo();
+//		frm.getContentPane().add(pn);
+//		frm.setVisible(true);
+//		
+//		Book bk =new Book();
+//		bk.setAuthor("huang li");
+//		bk.setBookName("My biography");
+//		bk.setCategory(Category.HISTORY);
+//		bk.setIsbn("123");
+//		bk.setRented(true);
+//		
+//		
+//		
+//		frm.pack();
+//		pn.ReadFrom(bk);
+//		
+//		Book bk2 = new Book();
+//		Book bk3 = new Book();
+//		pn.WriteTo(bk3);
+//		
+//		pn.ReadFrom(bk2);
+//		pn.ReadFrom(bk3);
+//	}
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 }

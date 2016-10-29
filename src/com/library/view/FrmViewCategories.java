@@ -5,11 +5,24 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+<<<<<<< HEAD
+=======
+//Joe
+
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 /**
  * Simply a Frame that lists all the Categories we have for different books
 	 * Sai Changes
  */
 public class FrmViewCategories extends JFrame {
+<<<<<<< HEAD
+=======
+	//JFrame L = new JFrame("View Categories");
+	
+	/**
+	 * 
+	 */
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 	private static final long serialVersionUID = 1L;
 
 	private final String StrCategories = "Children\nCooking\nHistory\nTravel";

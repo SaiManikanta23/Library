@@ -2,16 +2,33 @@ package com.library.view;
 
 
 import javax.swing.*;
+<<<<<<< HEAD
 
 import com.library.controller.*;
 import com.library.model.*;
 import com.library.view.*;
+=======
+import Library.*;
+import com.library.model.*;
+import com.library.view.*;
+
+// Joe, 
+
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 /**
  * After Administrator sucessfully Login, Main menu  (Books, Customers and Categories)
  * 
 
  */
 public class FrmAdminInterface extends JFrame {
+<<<<<<< HEAD
+=======
+	//JFrame J = new JFrame("Admin Login");
+	
+	/**
+	 * 
+	 */
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 	private static final long serialVersionUID = 1L;
 	private Library library;
 	

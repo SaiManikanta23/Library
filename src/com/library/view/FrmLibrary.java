@@ -2,9 +2,16 @@ package com.library.view;
 
 import java.awt.*;
 
+<<<<<<< HEAD
 import com.library.controller.*;
 import com.library.model.*;
 
+=======
+import com.library.model.*;
+
+import Library.*;
+
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 import java.awt.event.*;
 
 import javax.swing.*; //javax.swing.JFrame;
@@ -22,6 +29,11 @@ public class FrmLibrary extends JFrame{
 	 * Sai Changes
 	 */
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
+=======
+
+	//FrmLibrary frmLibrary = new FrmLibrary();
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 	Library L;
 	
 	JLabel label1 = new JLabel("Welcome to Our Library System ");

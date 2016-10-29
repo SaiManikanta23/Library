@@ -2,7 +2,11 @@ package com.library.view;
 
 import javax.swing.*;
 
+<<<<<<< HEAD
 import com.library.controller.*;
+=======
+import Library.*;
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 
 public class FrmAdminLogin extends JFrame {
 
@@ -10,6 +14,11 @@ public class FrmAdminLogin extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
+=======
+	// FrmAdministratorLog frmAdminLog = new FrmAdministratorLog();
+
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 	private Library library;
 	private JTextField loginName;
 	private JPasswordField loginPassWord;
@@ -76,6 +85,34 @@ public class FrmAdminLogin extends JFrame {
 				} else {
 					// Wrong info. provided
 					JOptionPane.showMessageDialog(FrmAdminLogin.this, "Sorry, Worng Input!");
+<<<<<<< HEAD
+=======
+					
+//					
+//					JFrame F1C = new JFrame();
+//					F1C.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//					F1C.setSize(350, 200);
+//					F1C.setLocation(450, 300);
+//					F1C.setVisible(true);
+//					F1C.setTitle("Login Confirmed");
+//					F1C.setLayout(null);
+//
+//					JLabel label3 = new JLabel("Sorry, Worng Input!");
+//					label3.setBounds(100, 20, 200, 120);
+//					F1C.add(label3);
+//
+//					JButton BtnConfirm = new JButton("OK");
+//					BtnConfirm.setBounds(120, 110, 90, 25);
+//					F1C.add(BtnConfirm);
+//
+//					BtnConfirm
+//							.addActionListener(new java.awt.event.ActionListener() {
+//								public void actionPerformed(
+//										java.awt.event.ActionEvent evt) {
+//									F1C.setVisible(false);
+//								}
+//							});
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
 				}
 			}
 		});
