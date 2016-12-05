@@ -1,0 +1,185 @@
+<script language="javascript" type="text/javascript">
+jQuery(document).ready(function() { 
+
+jQuery('#tabs li a:not(:first)').addClass('inactive');
+jQuery('.container').hide();
+jQuery('.container:first').show();
+
+jQuery('#tabs li a').click(function(){
+var t = jQuery(this).attr('id');
+if(jQuery(this).hasClass('inactive')){ //this is the start of our condition 
+jQuery('#tabs li a').addClass('inactive'); 
+jQuery(this).removeClass('inactive');
+
+jQuery('.container').hide();
+jQuery('#'+ t + 'C').fadeIn('slow');
+}
+});
+
+});
+
+
+</script>
+
+<style type="text/css">#tabs {
+
+width: 100%;
+height:30px; 
+border-bottom: solid 1px #CCC;
+padding-right: 2px;
+margin-top: 30px;
+
+
+}
+a {cursor:pointer;}
+
+#tabs li {
+float:left; 
+list-style:none; 
+border-top:1px solid #ccc; 
+border-left:1px solid #ccc; 
+border-right:1px solid #ccc; 
+margin-right:5px; 
+border-top-left-radius:3px; 
+border-top-right-radius:3px;
+outline:none;
+}
+
+#tabs li a {
+
+font-family:Arial, Helvetica, sans-serif; 
+font-size: Medium;
+font-weight: bold; 
+color: #353434;
+padding-top: 5px;
+padding-left: 7px;
+padding-right: 7px;
+padding-bottom: 8px; 
+display:block; 
+background: #FFF;
+border-top-left-radius:3px; 
+border-top-right-radius:3px; 
+text-decoration:none;
+outline:none;
+
+}
+
+#tabs li a.inactive{
+padding-top:5px;
+padding-bottom:8px;
+padding-left: 8px;
+padding-right: 8px;
+color:#666666;
+background: #EEE;
+outline:none;
+border-bottom: solid 1px #CCC;
+
+}
+
+#tabs li a:hover, #tabs li a.inactive:hover {
+
+
+color: #5685bc;
+outline:none;
+}
+
+.container {
+
+clear:both; 
+width:100%; 
+text-align:left;
+padding-top: 20px;
+
+}
+
+.container h2 { margin-left: 15px; margin-right: 15px; margin-bottom: 10px; color: #5685bc; }
+
+.container p { margin-left: 15px; margin-right: 15px; margin-top: 10px; margin-bottom: 10px; line-height: 1.3; font-size: small; }
+
+.container ul { margin-left: 25px; font-size: small; line-height: 1.4; list-style-type: disc; }
+
+.container li { padding-bottom: 5px; margin-left: 5px;}
+</style>
+ 
+
+<ul id="tabs">
+    <li><a id="tab1">Nominal</a></li>
+    <li><a id="tab2">Inflation Adjusted</a></li>
+</ul>
+
+<div class="container" id="tab1C">
+<div class="scroll-wrapper">
+<div id="display">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+
+(function($) {
+var to_display = [
+'<table align="center" border="0" cellpadding="5" cellspacing="0" style="width: 100%;">
+    <tbody>
+        <tr>
+            <td colspan="2" style="width: 100%; text-align: center;"><img alt="37th Annual Kansas Economic Outlook Conference in Wichita, October 6, 2016 " class="cke-resize cke-resize cke-resize cke-resize cke-resize" src="/eoc/2016/eoc_email_banner1.png" style="width: 100%; height: 316px;" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="width: 100%; vertical-align: top;">
+            <p style="text-align: center;"><br />
+            <a href="https://www.youtube.com/watch?v=8NvRWZdSJHc&amp;list=PLGUZ3vfzDifdA2PzvIwYjPPzLO7TwJOb_" target="_blank"><span style="font-size: 22px;"><b>WATCH SPEAKER PRESENTATIONS</b></span></a><br />
+            &nbsp;</p>
+
+            <p style="text-align: center;"><iframe allowfullscreen="" frameborder="0" height="500" scrolling="no" src="https://www.youtube.com/embed/videoseries?list=PLGUZ3vfzDifdA2PzvIwYjPPzLO7TwJOb_" width="100%"></iframe></p>
+
+            <p style="text-align: center;"><a href="https://www.facebook.com/media/set/?set=a.611297855662023.1073741826.127464004045413&amp;type=1&amp;l=13de234563" target="_blank"><span style="font-size:22px;"><strong>VIEW PHOTO GALLERY ON FACEBOOK</strong></span></a></p>
+
+            <hr /></td>
+        </tr></tbody></table>'
+ ];
+
+
+var $display = $( '#display' );
+
+$(document).on("change", "#test", function(e) {
+
+var index = $( this ).val();
+
+$display.html( to_display[ index ] );
+
+} );
+
+// Intialize display DIV.
+$display.html( to_display[ 0 ] );
+
+})(jQuery);
+</script></div>
+
+<div class="container" id="tab2C">
+<div class="scroll-wrapper">
+<div id="displays">&nbsp;</div>
+</div>
+<script language="javascript" type="text/javascript">
+
+ 
+(function($) {
+var to_display = [
+<p>hi</p>'
+
+ ];
+
+
+var $display = $( '#displays' );
+
+$(document).on("change", "#tests", function(e) {
+
+var index = $( this ).val();
+
+$display.html( to_display[ index ] );
+
+} );
+
+// Intialize display DIV.
+$display.html( to_display[ 0 ] );
+
+})(jQuery);
+
+
+</script></div>
+
