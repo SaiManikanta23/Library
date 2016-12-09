@@ -27,6 +27,10 @@ public class FrmUsersManagement extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
+=======
+	//JFrame L = new JFrame();
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 	private Library library;
 	private Validator validator=new Validator();
@@ -39,10 +43,24 @@ public class FrmUsersManagement extends JFrame{
 	private final int N_User_Table_Columns = 3;
 	private final String[] TBUserColumnTitle = { "userId", "userName", "userObj" };	
 	private final int TBUser_UserObjColIndex=2; //the column index of the user table
+<<<<<<< HEAD
 	
 	private class SelectionListener implements ListSelectionListener {
 
         SelectionListener(JTable table) {
+=======
+	/**
+	 * For tbUser, when select a row, then refresh the corresponding values in
+	 *   panelUserInfo
+	 * @author hl
+	 *
+	 */
+	private class SelectionListener implements ListSelectionListener {
+        //JTable table;
+
+        SelectionListener(JTable table) {
+            //this.table = table;
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
         }
         
         @Override
@@ -53,7 +71,11 @@ public class FrmUsersManagement extends JFrame{
         		
                 //Event handling
                 User user = getSelectedUser();
+<<<<<<< HEAD
                 pnlUserInfo.ReadFrom(new ReadFromParameter(user));
+=======
+                pnlUserInfo.ReadFrom(user);
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
             }
     }
 	
@@ -170,6 +192,7 @@ public class FrmUsersManagement extends JFrame{
 	 */
 	private void refreshUserTableUI() {
 		this.setResponseTbUserSelectedChanged(false);
+<<<<<<< HEAD
 		PanelUserInfo r = this.pnlUserInfo;
 		r.cmbUserType.setSelectedIndex(0);
 		r.txtId.setText("");
@@ -177,12 +200,19 @@ public class FrmUsersManagement extends JFrame{
 		r.txtPassword.setText("");
 		r.txtPhoneNo.setText("");
 		r.txtAddress.setText("");
+=======
+		this.pnlUserInfo.clear();
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		refreshUserTable();
 		this.setResponseTbUserSelectedChanged(true);
 		
 	}
 	
 	private void refreshUserTable() {
+<<<<<<< HEAD
+=======
+		// clear the table
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		int n = tbUserModel.getRowCount();
 		for (int i=0;i<n;i++)
 			tbUserModel.removeRow(0);

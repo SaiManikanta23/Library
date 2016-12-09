@@ -19,7 +19,11 @@ public class Book implements Serializable {
 	private int ownerId; //update when rent
 	private Category category;
 	
+<<<<<<< HEAD
 	Book(){
+=======
+	public Book(){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		isRented = false;
 		ownerId = Library.LIBRARY_OWNER_ID;

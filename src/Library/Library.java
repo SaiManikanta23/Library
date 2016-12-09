@@ -24,7 +24,11 @@ public class Library {
 	private ArrayList<Book> bookList;
 	private ArrayList<User> userList;
 	
+<<<<<<< HEAD
 	Library(){ //constructor
+=======
+	public Library(){ //constructor
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		bookList = new ArrayList<Book>();
 		userList = new ArrayList<User>();
 	}
@@ -81,7 +85,11 @@ public class Library {
 	}//login check  - old version
 	
 	
+<<<<<<< HEAD
 	User login(String userName, String password){
+=======
+	public User login(String userName, String password){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		User currentUser = null; //initialize
 		Iterator<User> userItr = userList.iterator();
@@ -95,7 +103,11 @@ public class Library {
 		return currentUser; //return null if login failed.
 	}
 	
+<<<<<<< HEAD
 	String getBookImgFileFullName(String isbn){
+=======
+	public String getBookImgFileFullName(String isbn){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		return DEFAULT_BOOK_IMAGE_PATH+isbn + ".jpg"; //Extension .jpg
 	}
 	
@@ -148,7 +160,11 @@ public class Library {
 		}
 	}
 	
+<<<<<<< HEAD
 	void addBook(Book b){
+=======
+	public void addBook(Book b){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		b.setAddedDate(new Date());
 		bookList.add(b);
 		
@@ -166,7 +182,11 @@ public class Library {
 		bookList.add(b);
 	}//add book
 	
+<<<<<<< HEAD
 	void updateBook(String isbn, Book b){
+=======
+	public void updateBook(String isbn, Book b){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		Iterator<Book> bookItr = bookList.iterator();
 		int index = -1;
 		while(bookItr.hasNext()){
@@ -179,7 +199,11 @@ public class Library {
 		}//end while
 	}//update book
 	
+<<<<<<< HEAD
 	boolean deleteBook(String isbn){
+=======
+	public boolean deleteBook(String isbn){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		Iterator<Book> bookItr = bookList.iterator();
 		int index = -1;
 		while(bookItr.hasNext()){
@@ -204,7 +228,11 @@ public class Library {
 		return false;
 	}//delete book
 	
+<<<<<<< HEAD
 	boolean addUser(User user){
+=======
+	public boolean addUser(User user){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		return userList.add(user);
 	}
 	
@@ -256,12 +284,20 @@ public class Library {
 		return userList;
 	}//show all user
 	
+<<<<<<< HEAD
 	ArrayList<Book> showBookList_all(){
+=======
+	public ArrayList<Book> showBookList_all(){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		return bookList;
 	}//show all books
 	
+<<<<<<< HEAD
 	ArrayList<Book> showBookList_rented(){
+=======
+	public ArrayList<Book> showBookList_rented(){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
@@ -276,7 +312,11 @@ public class Library {
 		
 	}//
 	
+<<<<<<< HEAD
 	ArrayList<Book> showBookList_remainder(){
+=======
+	public ArrayList<Book> showBookList_remainder(){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
@@ -305,7 +345,11 @@ public class Library {
 	}
 	
 	
+<<<<<<< HEAD
 	ArrayList<Book> showBookList_overdue(){
+=======
+	public ArrayList<Book> showBookList_overdue(){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
@@ -326,7 +370,11 @@ public class Library {
 	}
 	
 	
+<<<<<<< HEAD
 	boolean rentBook(int customerId, String isbn){
+=======
+	public boolean rentBook(int customerId, String isbn){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		while(bookItr.hasNext()){

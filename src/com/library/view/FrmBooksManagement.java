@@ -1,10 +1,19 @@
 package com.library.view;
 
 import java.awt.*;
+<<<<<<< HEAD
 
 import com.library.controller.*;
 import com.library.controller.Book;
 import com.library.controller.Library;
+=======
+<<<<<<< HEAD
+
+import com.library.controller.*;
+=======
+import Library.*;
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 import com.library.model.*;
 import java.awt.event.*;
 
@@ -27,7 +36,14 @@ public class FrmBooksManagement extends JFrame {
 
 	private final String[] cb_Status = { "Rented", "Not rented" };
 	private JComboBox tStatus = new JComboBox(cb_Status);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	// Record current what type of view will be shown in book table
 	private enum ViewBookType {
 		All,
@@ -92,6 +108,17 @@ public class FrmBooksManagement extends JFrame {
 	public FrmBooksManagement(Library lib) {
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.library = lib;
+<<<<<<< HEAD
+=======
+
+		// In the Requirement Document, Administrator is supposed to notify all
+		// the customers about the new books arriving.
+		// In this Frame, there is no certain button does that. Instead, as soon
+		// as a new book is added, all customers would
+		// be able to see the new added books from book list while they are
+		// trying rent new ones.
+
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		this.setSize(1000, 800);
 		this.setLocation(250, 40);
 		this.setVisible(true);
@@ -241,7 +268,25 @@ public class FrmBooksManagement extends JFrame {
 
 		btnAll.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+				//modify by Li Huang 2014.8.15
+//				int j = table.getRowCount();
+//				for (int i = 0; i < j; i++) {
+//					dtm.removeRow(0);
+//				}
+//				ArrayList<Book> books = FrmBooksManagement.this.library
+//						.showBookList_all();
+//				int nBook = books.size();
+//
+//				for (int i = 0; i < nBook; i++) {
+//					dtm.addRow(createBookTableRowData(books.get(i)));
+//				}
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 				viewBookType = ViewBookType.All;
 				Refresh();
 			}
@@ -251,7 +296,25 @@ public class FrmBooksManagement extends JFrame {
 		
 		btnRented.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+//				int j = table.getRowCount();
+//				for (int i = 0; i < j; i++) {
+//					dtm.removeRow(0);
+//				}
+//				ArrayList<Book> books = FrmBooksManagement.this.library
+//						.showBookList_all();
+//				int nBook = books.size();
+//
+//				for (int i = 0; i < nBook; i++) {
+//					if(!books.get(i).isRented()){continue;}
+//					dtm.addRow(createBookTableRowData(books.get(i)));
+//				}
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 				viewBookType = ViewBookType.Rented;
 				Refresh();
 			}
@@ -259,7 +322,26 @@ public class FrmBooksManagement extends JFrame {
 		
 		btnNotRented.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+				//modify by Li Huang 2014.8.15
+//				int j = table.getRowCount();
+//				for (int i = 0; i < j; i++) {
+//					dtm.removeRow(0);
+//				}
+//				ArrayList<Book> books = FrmBooksManagement.this.library
+//						.showBookList_all();
+//				int nBook = books.size();
+//
+//				for (int i = 0; i < nBook; i++) {
+//					if(books.get(i).isRented()){continue;}
+//					dtm.addRow(createBookTableRowData(books.get(i)));
+//				}
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 				viewBookType = ViewBookType.NotRented;
 				Refresh();
 			}
@@ -268,7 +350,25 @@ public class FrmBooksManagement extends JFrame {
 		
 		btnOverDue.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+//				int j = table.getRowCount();
+//				for (int i = 0; i < j; i++) {
+//					dtm.removeRow(0);
+//				}
+//				ArrayList<Book> books = FrmBooksManagement.this.library
+//						.showBookList_all();
+//				int nBook = books.size();
+//				int o_size = library.showBookList_overdue().size();
+//				for (int i = 0; i < o_size; i++) {
+////					if(books.get(i).isRented()){continue;}
+//					dtm.addRow(createBookTableRowData(library.showBookList_overdue().get(i)));
+//				}
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 				viewBookType = ViewBookType.Overdue;
 				Refresh();
 			}

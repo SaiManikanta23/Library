@@ -1,6 +1,7 @@
 package com.library.view;
 
 import javax.swing.*;
+<<<<<<< HEAD
 import com.library.controller.*;
 import com.library.controller.FrmBorrowBook;
 import com.library.controller.FrmCustomerReturnBook;
@@ -11,11 +12,30 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.awt.event.*;
+=======
+
+<<<<<<< HEAD
+import com.library.controller.*;
+
+import java.awt.*;
+import java.awt.event.*;
+=======
+import java.awt.*;
+import java.awt.event.*;
+import Library.*;
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 /**
  * Frame to guide customer
  */
 
 public class FrmCustomerInterface extends JFrame{
+<<<<<<< HEAD
+=======
+	/**
+	 * 
+	 */
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	private static final long serialVersionUID = 1L;
 	
 	private Library library;

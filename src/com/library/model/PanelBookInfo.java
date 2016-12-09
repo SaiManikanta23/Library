@@ -11,9 +11,17 @@ import javax.swing.GroupLayout.*;
 import javax.swing.LayoutStyle.*;
 import javax.swing.border.*;
 
+<<<<<<< HEAD
 import com.library.controller.*;
 import com.library.controller.Book;
 import com.library.controller.Library;
+=======
+<<<<<<< HEAD
+import com.library.controller.*;
+=======
+import Library.*;
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 
 
 /**
@@ -235,6 +243,7 @@ public class PanelBookInfo extends JPanel  {
 	
 	/**
 	 * Get Combox item index of Category
+<<<<<<< HEAD
 	 * @param category  category
 	 * @return return the index of corresponding category. If cat==null, return 0
 	 */
@@ -243,6 +252,16 @@ public class PanelBookInfo extends JPanel  {
 			return 0;
 		
 		switch (category)
+=======
+	 * @param cat  category
+	 * @return return the index of corresponding category. If cat==null, return 0
+	 */
+	private int getCmbCategoryIndex(Category cat) {
+		if (cat==null)
+			return 0;
+		
+		switch (cat)
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		{
 		case CHILDREN:
 			return 0;
@@ -261,6 +280,7 @@ public class PanelBookInfo extends JPanel  {
 		return 0;
 	}
 	
+<<<<<<< HEAD
 	private com.library.controller.Category getCategoryFromCmbIndex(int cmbCategoryIndex) {
 		switch (cmbCategoryIndex)
 		{
@@ -281,4 +301,56 @@ public class PanelBookInfo extends JPanel  {
 		return com.library.controller.Category.CHILDREN;
 	}
 
+=======
+	private Category getCategoryFromCmbIndex(int cmbCategoryIndex) {
+		switch (cmbCategoryIndex)
+		{
+		case 0:
+			return Category.CHILDREN;
+			//break;
+		case 1:
+			return Category.COOKING;
+			//break;
+		case 2:
+			return Category.HISTORY;
+			//break;
+		case 3:
+			return Category.TRAVEL;
+			//break;
+		}
+		
+		return Category.CHILDREN;
+	}
+
+<<<<<<< HEAD
+=======
+	//Test
+//	public static void main(String args[]) {
+//		JFrame frm =new JFrame();
+//		frm.setSize(500,500);
+//		PanelBookInfo pn = new PanelBookInfo();
+//		frm.getContentPane().add(pn);
+//		frm.setVisible(true);
+//		
+//		Book bk =new Book();
+//		bk.setAuthor("huang li");
+//		bk.setBookName("My biography");
+//		bk.setCategory(Category.HISTORY);
+//		bk.setIsbn("123");
+//		bk.setRented(true);
+//		
+//		
+//		
+//		frm.pack();
+//		pn.ReadFrom(bk);
+//		
+//		Book bk2 = new Book();
+//		Book bk3 = new Book();
+//		pn.WriteTo(bk3);
+//		
+//		pn.ReadFrom(bk2);
+//		pn.ReadFrom(bk3);
+//	}
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 }

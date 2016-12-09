@@ -1,6 +1,12 @@
 package Library;
 
 import javax.swing.*;
+<<<<<<< HEAD
+=======
+import com.library.model.*;
+import com.library.view.*;
+import com.library.model.*;
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -43,7 +49,11 @@ public class FrmCustomerReturnBook extends JFrame{
 		this(null, null);
 	}
 	
+<<<<<<< HEAD
 	FrmCustomerReturnBook(Library l, User u){
+=======
+	public FrmCustomerReturnBook(Library l, User u){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		this.library = l;
 		this.user = u;
 		

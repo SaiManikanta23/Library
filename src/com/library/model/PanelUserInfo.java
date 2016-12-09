@@ -8,8 +8,16 @@ import javax.swing.GroupLayout.*;
 import javax.swing.LayoutStyle.*;
 import javax.swing.border.*;
 
+<<<<<<< HEAD
 import com.library.controller.*;
 import com.library.controller.User;
+=======
+<<<<<<< HEAD
+import com.library.controller.*;
+=======
+import Library.*;
+>>>>>>> 1f0f08224b65a781d105c346f0ecdb9c21c4aa25
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 
 
 /**
@@ -17,6 +25,12 @@ import com.library.controller.User;
  */
 public class PanelUserInfo extends JPanel {
 
+<<<<<<< HEAD
+=======
+	/**
+	 * 
+	 */
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	private static final long serialVersionUID = 1L;
 
 
@@ -27,6 +41,7 @@ public class PanelUserInfo extends JPanel {
 	
 	
 	private JLabel lblUserType;
+<<<<<<< HEAD
 	public JComboBox cmbUserType;
 	private JLabel lblId;
 	public JTextField txtId;
@@ -38,6 +53,19 @@ public class PanelUserInfo extends JPanel {
 	public JTextField txtPhoneNo;
 	private JLabel lblAddress;
 	public JTextArea txtAddress;
+=======
+	private JComboBox cmbUserType;
+	private JLabel lblId;
+	private JTextField txtId;
+	private JLabel lblName;
+	private JTextField txtName;
+	private JLabel lblPassword;
+	private JTextField txtPassword;
+	private JLabel lblPhoneNo;
+	private JTextField txtPhoneNo;
+	private JLabel lblAddress;
+	private JTextArea txtAddress;
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 	//---------- Getters ---------------------
 	public boolean isAdmin() {
@@ -179,6 +207,7 @@ public class PanelUserInfo extends JPanel {
 	}
 	
 	/**
+<<<<<<< HEAD
 	 * Load information from book, fill the attribute boxes.
 	 * @param user
 	 * @deprecated Use {@link #ReadFrom(ReadFromParameter)} instead
@@ -201,6 +230,33 @@ public class PanelUserInfo extends JPanel {
 		this.txtPassword.setText(parameterObject.user.getPassword());
 		this.txtPhoneNo.setText(parameterObject.user.getPhoneNo());
 		this.txtAddress.setText(parameterObject.user.getAddress());
+=======
+	 * Clear the entries of the book info
+	 */
+	public void clear() {
+		this.cmbUserType.setSelectedIndex(0);
+		this.txtId.setText("");
+		this.txtName.setText("");
+		this.txtPassword.setText("");
+		this.txtPhoneNo.setText("");
+		this.txtAddress.setText("");
+	}
+	
+	/**
+	 * Load information from book, fill the attribute boxes.
+	 * @param user
+	 */
+	public void ReadFrom(User user) {
+		if (user==null)
+			return;
+		
+		this.cmbUserType.setSelectedIndex(getCmbUserTypeIndex(user.isAdmin()));
+		this.txtId.setText(String.valueOf(user.getUserId()));
+		this.txtName.setText(user.getUserName());
+		this.txtPassword.setText(user.getPassword());
+		this.txtPhoneNo.setText(user.getPhoneNo());
+		this.txtAddress.setText(user.getAddress());
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	}
 	
 	/**

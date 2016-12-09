@@ -6,6 +6,7 @@ import java.util.*;
 
 import javax.swing.JOptionPane;
 
+<<<<<<< HEAD
 public class Library {
 	
 	public static final int LIBRARY_OWNER_ID = 0;   
@@ -13,6 +14,20 @@ public class Library {
 	private final String UserListURL = "./users.dat";
 	private final long OverdueTimeLimit = 60*1000; 
 	private final long NewbookTimeLimit = 60*1000; 
+=======
+/**
+ * Library class, manage books and users
+ * make all the member variables private
+ * add copyBookImage() and addBook(book,srcBookImgPath,srcBookImgFilename) methods
+ */
+public class Library {
+	
+	public static final int LIBRARY_OWNER_ID = 0; // ownerId of the library is 0. i.e. not rented.  
+	private final String BookListURL = "./books.dat";
+	private final String UserListURL = "./users.dat";
+	private final long OverdueTimeLimit = 60*1000; // in millisecond
+	private final long NewbookTimeLimit = 60*1000; // in millisecond
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	private final int FINE_PER_SECOND = 1;
 	private final String DEFAULT_BOOK_IMAGE_PATH =  "./images/";
 	
@@ -69,24 +84,41 @@ public class Library {
 			User tempUser = userItr.next();
 			if(userName.equals(tempUser.getUserName()) && password.equals(tempUser.getPassword())){
 				return true;
+<<<<<<< HEAD
 			}
 		}
 		return false;
 		
 	}
+=======
+			}//end if
+		}//end while
+		return false;
+		
+	}//login check  - old version
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 	
 	public User login(String userName, String password){
 		
+<<<<<<< HEAD
 		User currentUser = null; 
+=======
+		User currentUser = null; //initialize
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		Iterator<User> userItr = userList.iterator();
 		while(userItr.hasNext()){
 			User tempUser = userItr.next();
 			if(tempUser.getUserName().equals(userName) && tempUser.getPassword().equals(password)){
 				currentUser = tempUser;
 				break;
+<<<<<<< HEAD
 			}
 		}
+=======
+			}//if login successful
+		}//while
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		return currentUser; //return null if login failed.
 	}
 	
@@ -110,7 +142,11 @@ public class Library {
 		try {
 			fi = new FileInputStream(srcPath);
 		} catch (FileNotFoundException e) {
+<<<<<<< HEAD
 			
+=======
+			//e.printStackTrace();
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 			return false;
 		}
 		BufferedInputStream in = new BufferedInputStream(fi);
@@ -170,9 +206,15 @@ public class Library {
 			if(tempBook.getIsbn().equals(isbn)){
 				bookList.set(index, b);
 				break;
+<<<<<<< HEAD
 			}
 		}
 	}
+=======
+			}//end if
+		}//end while
+	}//update book
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 	public boolean deleteBook(String isbn){
 		Iterator<Book> bookItr = bookList.iterator();
@@ -188,11 +230,19 @@ public class Library {
 					bookList.remove(index);
 					return true;
 				}
+<<<<<<< HEAD
 			}
 			
 		}
 		return false;
 	}
+=======
+			}//end if
+			
+		}//end while
+		return false;
+	}//delete book
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 	public boolean addUser(User user){
 		return userList.add(user);
@@ -210,11 +260,19 @@ public class Library {
 			if(tempUser.getUserId()==userId){
 				userList.set(index, user);
 				return true;
+<<<<<<< HEAD
 			}
 		}
 		
 		return false;
 	}
+=======
+			}//end if
+		}//end while
+		
+		return false;
+	}//update user
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 	boolean deleteUser(int userId){
 		
@@ -224,11 +282,17 @@ public class Library {
 			User tempUser = userItr.next();
 			index++;
 			if(tempUser.getUserId()==userId){
+<<<<<<< HEAD
 			
+=======
+				//******************************
+				//users who hold rented books can not be deleted.
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 				Iterator<Book> bookItr = bookList.iterator();
 				while(bookItr.hasNext()){
 					if(bookItr.next().getOwnerId() == userId)
 						return false;
+<<<<<<< HEAD
 				}
 			
 				userList.remove(index);
@@ -238,17 +302,36 @@ public class Library {
 		return false;
 				
 	}
+=======
+				}//end while
+				//******************************
+				userList.remove(index);
+				return true;
+			}//end if
+		}//end while
+		return false;
+				
+	}//delete user
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 
 	ArrayList<User> showUserList(){
 		
 		return userList;
+<<<<<<< HEAD
 	}
+=======
+	}//show all user
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 	public ArrayList<Book> showBookList_all(){
 		
 		return bookList;
+<<<<<<< HEAD
 	}
+=======
+	}//show all books
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 	public ArrayList<Book> showBookList_rented(){
 		
@@ -273,13 +356,22 @@ public class Library {
 			Book tempBook = bookItr.next();
 			if(tempBook.isRented() != true){
 				tempBookList.add(tempBook);
+<<<<<<< HEAD
 			}
 		}
+=======
+			}//end if
+		}//end while
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		return tempBookList;
 	}
 	
+<<<<<<< HEAD
 	public ArrayList<Book> showBookList_BorrowedByCustomer(int customerId){
+=======
+	ArrayList<Book> showBookList_BorrowedByCustomer(int customerId){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 	
 		Iterator<Book> bookItr = bookList.iterator();
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
@@ -288,8 +380,13 @@ public class Library {
 			if(tempBook.getOwnerId()==customerId){
 				tempBookList.add(tempBook);
 				
+<<<<<<< HEAD
 			}
 		}
+=======
+			}//end if
+		}//end while
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		return tempBookList;	
 	}
 	
@@ -330,7 +427,11 @@ public class Library {
 		return false;
 	}
 	
+<<<<<<< HEAD
 	public void returnBook(String isbn){
+=======
+	void returnBook(String isbn){
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 
 		Iterator<Book> bookItr = bookList.iterator();
@@ -357,10 +458,17 @@ public class Library {
 				if(tempBook.getCategory()==currentCtg){
 					tempBookList.add(tempBook);
 					
+<<<<<<< HEAD
 				}
 			}
 			
 		}
+=======
+				}//end if
+			}//end while
+			
+		}//end for
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		return tempBookList;
 		
 	}
@@ -370,7 +478,11 @@ public class Library {
 		Date currentDate = new Date(); 
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
 		Category currentCtg = null;
+<<<<<<< HEAD
 		for(int i =0;i<ctgList.length;i++){
+=======
+		for(int i =0;i<ctgList.length;i++){//for each category
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 			currentCtg = ctgList[i];
 			Iterator<Book> bookItr = bookList.iterator();
 			while(bookItr.hasNext()){
@@ -380,10 +492,17 @@ public class Library {
 					if(currentDate.getTime() - tempBook.getAddedDate().getTime() < NewbookTimeLimit)
 					tempBookList.add(tempBook);
 					
+<<<<<<< HEAD
 				}
 			}
 			
 		}
+=======
+				}//end if
+			}//end while
+			
+		}//end for
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		return tempBookList;
 		
 	}
@@ -394,14 +513,23 @@ public class Library {
 		while(bookItr.hasNext()){
 			Book tempBook = bookItr.next();
 			if(tempBook.getIsbn().equals(isbn)){
+<<<<<<< HEAD
 			
+=======
+				//this book found
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 				int overdue_time_seconds = (int)(returnDate.getTime() - tempBook.getLastRented().getTime() - OverdueTimeLimit )/1000;
 				if (overdue_time_seconds<0)
 					overdue_time_seconds=0;
 				double fine_amount = overdue_time_seconds*FINE_PER_SECOND;
 				return fine_amount;
+<<<<<<< HEAD
 			}
 		}
+=======
+			}//end if
+		}//end while
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		return 0.0;
 	}
@@ -413,9 +541,15 @@ public class Library {
 			Book tempBook = bookItr.next();
 			if(tempBook.getIsbn().equals(isbn)){
 				return tempBook;
+<<<<<<< HEAD
 			}
 			
 		}
+=======
+			}//end if
+			
+		}//end while
+>>>>>>> 5777a24229b2da7e69cf2f5f2a25c29bb0dbbd49
 		
 		return new Book();
 	}
