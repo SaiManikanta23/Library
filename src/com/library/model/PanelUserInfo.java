@@ -17,9 +17,6 @@ import com.library.controller.User;
  */
 public class PanelUserInfo extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 
@@ -30,17 +27,17 @@ public class PanelUserInfo extends JPanel {
 	
 	
 	private JLabel lblUserType;
-	private JComboBox cmbUserType;
+	public JComboBox cmbUserType;
 	private JLabel lblId;
-	private JTextField txtId;
+	public JTextField txtId;
 	private JLabel lblName;
-	private JTextField txtName;
+	public JTextField txtName;
 	private JLabel lblPassword;
-	private JTextField txtPassword;
+	public JTextField txtPassword;
 	private JLabel lblPhoneNo;
-	private JTextField txtPhoneNo;
+	public JTextField txtPhoneNo;
 	private JLabel lblAddress;
-	private JTextArea txtAddress;
+	public JTextArea txtAddress;
 		
 	//---------- Getters ---------------------
 	public boolean isAdmin() {
@@ -182,31 +179,28 @@ public class PanelUserInfo extends JPanel {
 	}
 	
 	/**
-	 * Clear the entries of the book info
-	 */
-	public void clear() {
-		this.cmbUserType.setSelectedIndex(0);
-		this.txtId.setText("");
-		this.txtName.setText("");
-		this.txtPassword.setText("");
-		this.txtPhoneNo.setText("");
-		this.txtAddress.setText("");
-	}
-	
-	/**
 	 * Load information from book, fill the attribute boxes.
 	 * @param user
+	 * @deprecated Use {@link #ReadFrom(ReadFromParameter)} instead
 	 */
 	public void ReadFrom(User user) {
-		if (user==null)
+		ReadFrom(new ReadFromParameter(user));
+	}
+
+	/**
+	 * Load information from book, fill the attribute boxes.
+	 * @param parameterObject TODO
+	 */
+	public void ReadFrom(ReadFromParameter parameterObject) {
+		if (parameterObject.user==null)
 			return;
 		
-		this.cmbUserType.setSelectedIndex(getCmbUserTypeIndex(user.isAdmin()));
-		this.txtId.setText(String.valueOf(user.getUserId()));
-		this.txtName.setText(user.getUserName());
-		this.txtPassword.setText(user.getPassword());
-		this.txtPhoneNo.setText(user.getPhoneNo());
-		this.txtAddress.setText(user.getAddress());
+		this.cmbUserType.setSelectedIndex(getCmbUserTypeIndex(parameterObject.user.isAdmin()));
+		this.txtId.setText(String.valueOf(parameterObject.user.getUserId()));
+		this.txtName.setText(parameterObject.user.getUserName());
+		this.txtPassword.setText(parameterObject.user.getPassword());
+		this.txtPhoneNo.setText(parameterObject.user.getPhoneNo());
+		this.txtAddress.setText(parameterObject.user.getAddress());
 	}
 	
 	/**

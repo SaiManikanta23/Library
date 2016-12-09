@@ -12,14 +12,9 @@ import java.util.*;
 import javax.swing.*;
 
 
-/**
- * About form, show author and version information
- */
+
 public class FrmAbout extends JDialog{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtAuthor;
 	private JTextField txtVersion;

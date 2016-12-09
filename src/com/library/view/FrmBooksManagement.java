@@ -92,14 +92,6 @@ public class FrmBooksManagement extends JFrame {
 	public FrmBooksManagement(Library lib) {
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.library = lib;
-
-		// In the Requirement Document, Administrator is supposed to notify all
-		// the customers about the new books arriving.
-		// In this Frame, there is no certain button does that. Instead, as soon
-		// as a new book is added, all customers would
-		// be able to see the new added books from book list while they are
-		// trying rent new ones.
-
 		this.setSize(1000, 800);
 		this.setLocation(250, 40);
 		this.setVisible(true);

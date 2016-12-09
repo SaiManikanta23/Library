@@ -27,7 +27,6 @@ public class FrmUsersManagement extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	//JFrame L = new JFrame();
 	
 	private Library library;
 	private Validator validator=new Validator();
@@ -40,17 +39,10 @@ public class FrmUsersManagement extends JFrame{
 	private final int N_User_Table_Columns = 3;
 	private final String[] TBUserColumnTitle = { "userId", "userName", "userObj" };	
 	private final int TBUser_UserObjColIndex=2; //the column index of the user table
-	/**
-	 * For tbUser, when select a row, then refresh the corresponding values in
-	 *   panelUserInfo
-	 * @author hl
-	 *
-	 */
+	
 	private class SelectionListener implements ListSelectionListener {
-        //JTable table;
 
         SelectionListener(JTable table) {
-            //this.table = table;
         }
         
         @Override
@@ -61,7 +53,7 @@ public class FrmUsersManagement extends JFrame{
         		
                 //Event handling
                 User user = getSelectedUser();
-                pnlUserInfo.ReadFrom(user);
+                pnlUserInfo.ReadFrom(new ReadFromParameter(user));
             }
     }
 	
@@ -178,14 +170,19 @@ public class FrmUsersManagement extends JFrame{
 	 */
 	private void refreshUserTableUI() {
 		this.setResponseTbUserSelectedChanged(false);
-		this.pnlUserInfo.clear();
+		PanelUserInfo r = this.pnlUserInfo;
+		r.cmbUserType.setSelectedIndex(0);
+		r.txtId.setText("");
+		r.txtName.setText("");
+		r.txtPassword.setText("");
+		r.txtPhoneNo.setText("");
+		r.txtAddress.setText("");
 		refreshUserTable();
 		this.setResponseTbUserSelectedChanged(true);
 		
 	}
 	
 	private void refreshUserTable() {
-		// clear the table
 		int n = tbUserModel.getRowCount();
 		for (int i=0;i<n;i++)
 			tbUserModel.removeRow(0);

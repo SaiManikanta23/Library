@@ -19,9 +19,7 @@ import java.util.*;
 
 
 public class FrmCustomerReturnBook extends JFrame{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
 	private final int N_Book_Table_Columns = 4;
