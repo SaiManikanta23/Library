@@ -12,20 +12,15 @@ import javax.swing.LayoutStyle.*;
 import javax.swing.border.*;
 
 import com.library.controller.*;
-import com.library.controller.Book;
-import com.library.controller.Library;
 
-
-/**
- * Panel to show Book Info
- *
- */
+@SuppressWarnings("serial")
 public class PanelBookInfo extends JPanel  {
 
 	private final String[] cmbStatusStrs = {"Available","Rented Out"}; 
 	private final String[] cmbCategoryStrs = {"Children", "Cooking", "History","Travel"};
 	
 	private JLabel lblBookImg;
+	@SuppressWarnings("unused")
 	private JLabel lblStatus;
 	private JTextField txtStatus;
 	private JLabel lblIsbn;
@@ -35,13 +30,10 @@ public class PanelBookInfo extends JPanel  {
 	private JLabel lblAuthor;
 	private JTextField txtAuthor;
 	private JLabel lblCategory;
-	private JComboBox cmbCategory;
+	private JComboBox<?> cmbCategory;
 	
-	private Library library;
-	
-	/**
-	 * Create the panel.
-	 */
+	private add_Book_ToAccount library;
+
 	public PanelBookInfo() {
 		setBorder(new TitledBorder(null, "BookInfo", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
@@ -108,7 +100,7 @@ public class PanelBookInfo extends JPanel  {
 					.addGap(24))
 		);
 		
-		cmbCategory = new JComboBox(cmbCategoryStrs);
+		cmbCategory = new JComboBox<Object>(cmbCategoryStrs);
 		panel_4.add(cmbCategory);
 		
 		txtAuthor = new JTextField();
@@ -136,25 +128,18 @@ public class PanelBookInfo extends JPanel  {
 	}
 	
 	
-	public PanelBookInfo(Library library) {
+	public PanelBookInfo(add_Book_ToAccount library) {
 		this();
 		this.library=library;
 	}
 	
-	/**
-	 * Set whether this panel information is editable or read only
-	 */
 	public void setEditable(boolean editable) {
-		//cmbStatus.setEditable(editable); //default cannot editable
 		txtIsbn.setEditable(editable);
 		txtName.setEditable(editable);
 		txtAuthor.setEditable(editable);
 		cmbCategory.setEnabled(editable);
 	}
-	
-	/**
-	 * Clear the entries of the book info
-	 */
+// clearing all entries
 	public void clear() {
 		this.lblBookImg.setIcon(null);
 		this.txtStatus.setText("");
@@ -172,7 +157,6 @@ public class PanelBookInfo extends JPanel  {
 		if (book==null)
 			return;
 		
-		//update book img
 		String bookImgPath = null;
 		if (this.library!=null) {
 			bookImgPath = this.library.getBookImgFileFullName(book.getIsbn());
@@ -206,7 +190,6 @@ public class PanelBookInfo extends JPanel  {
 	
 	
 	/**
-	 * Get Combox item index of Status
 	 * @param isRented
 	 * @return if is rented, return 1, else return 0
 	 */
@@ -246,16 +229,12 @@ public class PanelBookInfo extends JPanel  {
 		{
 		case CHILDREN:
 			return 0;
-			//break;
 		case COOKING:
 			return 1;
-			//break;
 		case HISTORY:
 			return 2;
-			//break;
 		case TRAVEL:
 			return 3;
-			//break;
 		}
 		
 		return 0;
@@ -266,16 +245,12 @@ public class PanelBookInfo extends JPanel  {
 		{
 		case 0:
 			return com.library.controller.Category.CHILDREN;
-			//break;
 		case 1:
 			return com.library.controller.Category.COOKING;
-			//break;
 		case 2:
 			return com.library.controller.Category.HISTORY;
-			//break;
 		case 3:
 			return com.library.controller.Category.TRAVEL;
-			//break;
 		}
 		
 		return com.library.controller.Category.CHILDREN;

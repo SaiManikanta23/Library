@@ -1,23 +1,14 @@
 package com.library.controller;
 
 import java.io.*;
-import java.text.*;
 import java.util.*;
 
-import javax.swing.JOptionPane;
-
-/**
- * Library class, manage books and users
- * make all the member variables private
- * add copyBookImage() and addBook(book,srcBookImgPath,srcBookImgFilename) methods
- */
-public class Library {
+public class Library implements add_Book_ToAccount {
 	
-	public static final int LIBRARY_OWNER_ID = 0; // ownerId of the library is 0. i.e. not rented.  
 	private final String BookListURL = "./books.dat";
 	private final String UserListURL = "./users.dat";
-	private final long OverdueTimeLimit = 60*1000; // in millisecond
-	private final long NewbookTimeLimit = 60*1000; // in millisecond
+	private final long OverdueTimeLimit = 60*1000; 
+	private final long NewbookTimeLimit = 60*1000; 
 	private final int FINE_PER_SECOND = 1;
 	private final String DEFAULT_BOOK_IMAGE_PATH =  "./images/";
 	
@@ -30,6 +21,7 @@ public class Library {
 	}
 	
 	
+	@SuppressWarnings("resource")
 	void saveBooks() throws IOException{
 		
 		FileOutputStream fout = new FileOutputStream(BookListURL);
@@ -74,40 +66,43 @@ public class Library {
 			User tempUser = userItr.next();
 			if(userName.equals(tempUser.getUserName()) && password.equals(tempUser.getPassword())){
 				return true;
-			}//end if
-		}//end while
+			}
+		}
 		return false;
 		
-	}//login check  - old version
+	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#login(java.lang.String, java.lang.String)
+	 */
+	@Override
 	public User login(String userName, String password){
 		
-		User currentUser = null; //initialize
+		User currentUser = null; 
 		Iterator<User> userItr = userList.iterator();
 		while(userItr.hasNext()){
 			User tempUser = userItr.next();
 			if(tempUser.getUserName().equals(userName) && tempUser.getPassword().equals(password)){
 				currentUser = tempUser;
 				break;
-			}//if login successful
-		}//while
+			}
+		}
 		return currentUser; //return null if login failed.
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#getBookImgFileFullName(java.lang.String)
+	 */
+	@Override
 	public String getBookImgFileFullName(String isbn){
 		return DEFAULT_BOOK_IMAGE_PATH+isbn + ".jpg"; //Extension .jpg
 	}
 	
-	/**
-	 * Copy the book image file into the default Book Image folder.
-	 * @param srcImgPath  original image file path e.g. D:/img1
-	 * @param srcImgFileName original image filename,  e.g. abc.jpg
-	 * @param newImgFilename new image filename, without extension,  e.g.  1234
-	 * @return if success copy the file, return true; else return false;
-	 * e.g. Will copy D:/img1/abc.jpg into DEFAULT_BOOK_IMG_PATH/1234.jpg. 
-	 * @throws Exception
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#copyBookImage(java.lang.String, java.lang.String, java.lang.String)
 	 */
+	@Override
 	public boolean copyBookImage(String srcImgPath, String srcImgFileName, String newImgFilename)
 	{
 		String srcPath = srcImgPath + srcImgFileName;
@@ -115,7 +110,7 @@ public class Library {
 		try {
 			fi = new FileInputStream(srcPath);
 		} catch (FileNotFoundException e) {
-			//e.printStackTrace();
+			
 			return false;
 		}
 		BufferedInputStream in = new BufferedInputStream(fi);
@@ -148,11 +143,15 @@ public class Library {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#addBook(com.library.controller.Book)
+	 */
+	@Override
 	public void addBook(Book b){
 		b.setAddedDate(new Date());
 		bookList.add(b);
 		
-	}//add book
+	}
 	
 	/**
 	 * add a book into library, and also copy its image file into the default book image folder.
@@ -166,6 +165,10 @@ public class Library {
 		bookList.add(b);
 	}//add book
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#updateBook(java.lang.String, com.library.controller.Book)
+	 */
+	@Override
 	public void updateBook(String isbn, Book b){
 		Iterator<Book> bookItr = bookList.iterator();
 		int index = -1;
@@ -175,10 +178,14 @@ public class Library {
 			if(tempBook.getIsbn().equals(isbn)){
 				bookList.set(index, b);
 				break;
-			}//end if
-		}//end while
-	}//update book
+			}
+		}
+	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#deleteBook(java.lang.String)
+	 */
+	@Override
 	public boolean deleteBook(String isbn){
 		Iterator<Book> bookItr = bookList.iterator();
 		int index = -1;
@@ -193,12 +200,16 @@ public class Library {
 					bookList.remove(index);
 					return true;
 				}
-			}//end if
+			}
 			
-		}//end while
+		}
 		return false;
-	}//delete book
+	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#addUser(com.library.controller.User)
+	 */
+	@Override
 	public boolean addUser(User user){
 		return userList.add(user);
 	}
@@ -215,11 +226,11 @@ public class Library {
 			if(tempUser.getUserId()==userId){
 				userList.set(index, user);
 				return true;
-			}//end if
-		}//end while
+			}
+		}
 		
 		return false;
-	}//update user
+	}
 	
 	boolean deleteUser(int userId){
 		
@@ -229,33 +240,40 @@ public class Library {
 			User tempUser = userItr.next();
 			index++;
 			if(tempUser.getUserId()==userId){
-				//******************************
-				//users who hold rented books can not be deleted.
+			
 				Iterator<Book> bookItr = bookList.iterator();
 				while(bookItr.hasNext()){
 					if(bookItr.next().getOwnerId() == userId)
 						return false;
-				}//end while
-				//******************************
+				}
+			
 				userList.remove(index);
 				return true;
-			}//end if
-		}//end while
+			}
+		}
 		return false;
 				
-	}//delete user
+	}
 	
 
 	ArrayList<User> showUserList(){
 		
 		return userList;
-	}//show all user
+	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#showBookList_all()
+	 */
+	@Override
 	public ArrayList<Book> showBookList_all(){
 		
 		return bookList;
-	}//show all books
+	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#showBookList_rented()
+	 */
+	@Override
 	public ArrayList<Book> showBookList_rented(){
 		
 		Iterator<Book> bookItr = bookList.iterator();
@@ -271,6 +289,10 @@ public class Library {
 		
 	}//
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#showBookList_remainder()
+	 */
+	@Override
 	public ArrayList<Book> showBookList_remainder(){
 		
 		Iterator<Book> bookItr = bookList.iterator();
@@ -279,12 +301,16 @@ public class Library {
 			Book tempBook = bookItr.next();
 			if(tempBook.isRented() != true){
 				tempBookList.add(tempBook);
-			}//end if
-		}//end while
+			}
+		}
 		
 		return tempBookList;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#showBookList_BorrowedByCustomer(int)
+	 */
+	@Override
 	public ArrayList<Book> showBookList_BorrowedByCustomer(int customerId){
 	
 		Iterator<Book> bookItr = bookList.iterator();
@@ -294,12 +320,16 @@ public class Library {
 			if(tempBook.getOwnerId()==customerId){
 				tempBookList.add(tempBook);
 				
-			}//end if
-		}//end while
+			}
+		}
 		return tempBookList;	
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#showBookList_overdue()
+	 */
+	@Override
 	public ArrayList<Book> showBookList_overdue(){
 		
 		Iterator<Book> bookItr = bookList.iterator();
@@ -321,6 +351,10 @@ public class Library {
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#rentBook(int, java.lang.String)
+	 */
+	@Override
 	public boolean rentBook(int customerId, String isbn){
 		
 		Iterator<Book> bookItr = bookList.iterator();
@@ -336,6 +370,10 @@ public class Library {
 		return false;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#returnBook(java.lang.String)
+	 */
+	@Override
 	public void returnBook(String isbn){
 		
 
@@ -363,10 +401,10 @@ public class Library {
 				if(tempBook.getCategory()==currentCtg){
 					tempBookList.add(tempBook);
 					
-				}//end if
-			}//end while
+				}
+			}
 			
-		}//end for
+		}
 		return tempBookList;
 		
 	}
@@ -376,7 +414,7 @@ public class Library {
 		Date currentDate = new Date(); 
 		ArrayList<Book> tempBookList = new ArrayList<Book>();
 		Category currentCtg = null;
-		for(int i =0;i<ctgList.length;i++){//for each category
+		for(int i =0;i<ctgList.length;i++){
 			currentCtg = ctgList[i];
 			Iterator<Book> bookItr = bookList.iterator();
 			while(bookItr.hasNext()){
@@ -386,32 +424,40 @@ public class Library {
 					if(currentDate.getTime() - tempBook.getAddedDate().getTime() < NewbookTimeLimit)
 					tempBookList.add(tempBook);
 					
-				}//end if
-			}//end while
+				}
+			}
 			
-		}//end for
+		}
 		return tempBookList;
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#fine(java.lang.String, java.util.Date)
+	 */
+	@Override
 	public double fine(String isbn, Date returnDate){
 		
 		Iterator<Book> bookItr = bookList.iterator();
 		while(bookItr.hasNext()){
 			Book tempBook = bookItr.next();
 			if(tempBook.getIsbn().equals(isbn)){
-				//this book found
+			
 				int overdue_time_seconds = (int)(returnDate.getTime() - tempBook.getLastRented().getTime() - OverdueTimeLimit )/1000;
 				if (overdue_time_seconds<0)
 					overdue_time_seconds=0;
 				double fine_amount = overdue_time_seconds*FINE_PER_SECOND;
 				return fine_amount;
-			}//end if
-		}//end while
+			}
+		}
 		
 		return 0.0;
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.library.controller.add_Book_ToAccount#getBookByISBN(java.lang.String)
+	 */
+	@Override
 	public Book getBookByISBN(String isbn){
 		
 		Iterator<Book> bookItr = bookList.iterator();
@@ -419,9 +465,9 @@ public class Library {
 			Book tempBook = bookItr.next();
 			if(tempBook.getIsbn().equals(isbn)){
 				return tempBook;
-			}//end if
+			}
 			
-		}//end while
+		}
 		
 		return new Book();
 	}

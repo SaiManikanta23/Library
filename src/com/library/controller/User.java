@@ -4,9 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class User implements Serializable {
-	/**
-	 * Sai Changes
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private int userId;
 	private String userName;
@@ -16,7 +14,6 @@ public class User implements Serializable {
 	private boolean isAdmin;
 	private ArrayList<Category> subscribedCategory;
 	
-	//getters & setters 
 	public int getUserId() {
 		return userId;
 	}

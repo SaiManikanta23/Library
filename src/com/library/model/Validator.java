@@ -1,27 +1,14 @@
 package com.library.model;
 
 import com.library.controller.*;
-import com.library.view.*;
 
-/**
- * The class to validate User and Book
- * add isUserValid(), isBookValid()
- *   use some Constant, e.g. SpecialCharactersRegex
- *   change the rule of valid PhoneNo, can allow (+86)502-445-0333
- */
 public class Validator {
 
 	private static final String SpecialCharsRegex = "[@#$%^&*=+~`|\\/?!.,\';:\"]";
 	private static final String SpecialReplaceChar = ":";
-	/**
-	 * The chars cannot occurs in phone number
-	 */
 	private static final String PhoneNumberInvalidCharsRegex = "[a-zA-Z@#$%^&*=~`|\\/?!.,\';:\"]";
 	
 	/**
-	 * If str is null, or str=" ", or str="", or str contains
-	 * "@#$%^&*-_=+~`|\/?.,';:\"" it is not vailid;
-	 * 
 	 * @param str
 	 * @return
 	 */

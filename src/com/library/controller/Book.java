@@ -8,20 +8,19 @@ public class Book implements Serializable {
 	private String bookName;
 	private String author;
 	private String isbn;
-	private Date lastRented; //update when rent
+	private Date lastRented; 
 	private Date AddedDate;
-	private boolean isRented; //update when rent
-	private int ownerId; //update when rent
+	private boolean isRented; 
+	private int ownerId; 
 	private Category category;
 	
 	public Book(){
 		
 		isRented = false;
-		ownerId = Library.LIBRARY_OWNER_ID;
+		ownerId = add_Book_ToAccount.LIBRARY_OWNER_ID;
 		
 	}
 	
-	//getters & setters
 	public String getBookName() {
 		return bookName;
 	}

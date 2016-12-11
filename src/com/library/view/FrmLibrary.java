@@ -2,32 +2,13 @@ package com.library.view;
 
 import java.awt.*;
 import com.library.controller.*;
-import com.library.controller.Book;
-import com.library.controller.Category;
-import com.library.controller.Library;
-import com.library.controller.User;
 import com.library.model.*;
-import com.library.model.*;
-
-import java.awt.event.*;
-
-import javax.swing.*; //javax.swing.JFrame;
-
-import java.io.*;
-/**
- * Very First Frame Chose login Type(System Main Frame)
- * @author Joe
- * add 2014.8.12
- * edit by Li Huang 2014.8.14 fix bugs
- * */
+import javax.swing.*; 
 import java.util.Date;
 public class FrmLibrary extends JFrame{
-	/**
-	 * Sai Changes
-	 */
 	private static final long serialVersionUID = 1L;
 
-	Library L;
+	Library Lib;
 	
 	JLabel label1 = new JLabel("Welcome to Our Library System ");
 	JLabel label2 = new JLabel("Log in as a:  ");
@@ -39,7 +20,7 @@ public class FrmLibrary extends JFrame{
 	
 	public FrmLibrary(){
 		
-		L = createDemoLibrary();
+		Lib = createDemoLibrary();
 		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
@@ -78,7 +59,7 @@ public class FrmLibrary extends JFrame{
 		
 		btnAdmin.addActionListener(new java.awt.event.ActionListener() {
 	    public void actionPerformed(java.awt.event.ActionEvent evt) {
-	    	FrmAdminLogin AdministratorLog = new FrmAdminLogin(L);
+	    	new AdminLogin(Lib);
 	    	}
 		});
 		
@@ -90,13 +71,13 @@ public class FrmLibrary extends JFrame{
 		
 		btnCustomer.addActionListener(new java.awt.event.ActionListener() {
 		    public void actionPerformed(java.awt.event.ActionEvent evt) {
-		       FrmCustomerLogin CustomerLogin = new FrmCustomerLogin(L);
+		       new CustomerLogin(Lib);
 		    }
 		});
 		
 		btnAbout.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt){
-				FrmAbout about = new FrmAbout();
+				new AboutUs();
 			}
 		});
 	}
@@ -110,7 +91,7 @@ public class FrmLibrary extends JFrame{
 		book1.setCategory(Category.CHILDREN);
 		book1.setIsbn("2B64B");
 		book1.setLastRented(new Date());
-		book1.setOwnerId(Library.LIBRARY_OWNER_ID);
+		book1.setOwnerId(add_Book_ToAccount.LIBRARY_OWNER_ID);
 		book1.setRented(false);		
 		library.addBook(book1);
 		
@@ -121,7 +102,7 @@ public class FrmLibrary extends JFrame{
 		book2.setCategory(Category.HISTORY);
 		book2.setIsbn("SBSBDSB");
 		book2.setLastRented(new Date());
-		book2.setOwnerId(Library.LIBRARY_OWNER_ID);
+		book2.setOwnerId(add_Book_ToAccount.LIBRARY_OWNER_ID);
 		book2.setRented(false);
 		library.addBook(book2);
 		

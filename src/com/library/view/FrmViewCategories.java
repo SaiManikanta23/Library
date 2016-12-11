@@ -5,9 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
- /* Simply a Frame that lists all the Categories we have for different books
-	 * Sai Changes
- */
 public class FrmViewCategories extends JFrame {
 
 	private static final long serialVersionUID = 1L;
