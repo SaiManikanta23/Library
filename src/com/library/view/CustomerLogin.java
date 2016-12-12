@@ -142,10 +142,17 @@ public class CustomerLogin extends JFrame{
 		u2.setUserName("admin");
 		u2.setAdmin(true);
 		
+<<<<<<< HEAD
 		u3.setUserId(3);
 		u3.setPassword("sai");
 		u3.setUserName("sai");
 		u3.setAdmin(true);
+=======
+		u2.setUserId(3);
+		u2.setPassword("sai");
+		u2.setUserName("sai");
+		u2.setAdmin(true);
+>>>>>>> c59f0b29483f4a64db2e126b0698a29761f990eb
 		
 		l.addUser(u1);
 		l.addUser(u2);
