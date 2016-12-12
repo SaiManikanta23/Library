@@ -43,11 +43,7 @@ public class UsersManagement extends JFrame{
         		if (!getResponseTbUserSelectedChanged()) {
         			return;
         		}
-        		
-                //Event handling
-             //   User user = getSelectedUser();
-              //  pnlUserInfo.ReadFrom(new ReadFromParameter(user));
-            }
+           }
     }
 	
 	public UsersManagement(){
@@ -77,10 +73,10 @@ public class UsersManagement extends JFrame{
 		
 		// No reports of customers are expected in this Frame
 		
-		JButton btnAdd = new JButton("Add");
-		btnAdd.setVisible(true);
-		btnAdd.setBounds(60, 520, 100, 30);
-		this.add(btnAdd);
+		JButton add_Button = new JButton("Add");
+		add_Button.setVisible(true);
+		add_Button.setBounds(60, 520, 100, 30);
+		this.add(add_Button);
 		
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setVisible(true);
@@ -125,7 +121,7 @@ public class UsersManagement extends JFrame{
 		    }
 		});
 		
-		btnAdd.addActionListener(new java.awt.event.ActionListener() {
+		add_Button.addActionListener(new java.awt.event.ActionListener() {
 		    public void actionPerformed(java.awt.event.ActionEvent evt) {
 		    	AddUsers dlgAddUser =new AddUsers();
 		    	dlgAddUser.setModal(true);dlgAddUser.setVisible(true);
@@ -160,13 +156,13 @@ public class UsersManagement extends JFrame{
 	 */
 	private void refreshUserTableUI() {
 		this.setResponseTbUserSelectedChanged(false);
-		PanelUserInfo r = this.pnlUserInfo;
-		r.cmbUserType.setSelectedIndex(0);
-		r.txtId.setText("");
-		r.txtName.setText("");
-		r.txtPassword.setText("");
-		r.txtPhoneNo.setText("");
-		r.txtAddress.setText("");
+		PanelUserInfo panel_User = this.pnlUserInfo;
+		panel_User.cmbUserType.setSelectedIndex(0);
+		panel_User.txtId.setText("");
+		panel_User.txtName.setText("");
+		panel_User.txtPassword.setText("");
+		panel_User.txtPhoneNo.setText("");
+		panel_User.txtAddress.setText("");
 		refreshUserTable();
 		this.setResponseTbUserSelectedChanged(true);
 		
@@ -204,9 +200,9 @@ public class UsersManagement extends JFrame{
 			return null;
 		else {
 			List<User> users =library.showUserList();
-			int n = users.size();//number of users
-			Object[][] booksData = new Object[n][];
-			for (int i=0;i<n;i++) {
+			int num_Of_Users = users.size();//number of users
+			Object[][] booksData = new Object[num_Of_Users][];
+			for (int i=0;i<num_Of_Users;i++) {
 				booksData[i]=createUserTableRowData(users.get(i));
 			}
 
@@ -306,19 +302,19 @@ public class UsersManagement extends JFrame{
 		lib.addBook(b2);
 		
 		User u1 = new User();
-		u1.setUserName("Huang Li");
+		u1.setUserName("Sai");
 		u1.setUserId(111);
 		u1.setPassword("it is a secrect");
 		u1.setPhoneNo("512-309-4444");
-		u1.setAddress("1255 Hike Lane. Louisville,KY 40209");
+		u1.setAddress("2330N oliver, Wichita, Kansas");
 		
 		User u2 = new User();
 		u2.setAdmin(true);
-		u2.setUserName("Zhou Zhi Peng");
+		u2.setUserName("Chaitanya");
 		u2.setUserId(222);
 		u2.setPassword("My password is here");
 		u2.setPhoneNo("858-222-1111");
-		u2.setAddress("University of Texas. Austin,TX 50100");
+		u2.setAddress("Wichita State University, Wichita, Kansas");
 		
 		lib.addUser(u1);
 		lib.addUser(u2);
