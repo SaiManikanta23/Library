@@ -24,17 +24,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextArea;
 
 public class BorrowBookFinish extends JDialog {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
-	private JLabel lblMessage;
-	private JTextField txtIsbn;
-	private JTextField txtName;
-	private JTextArea txtReason;
-	private JButton btnOk;
+	private JLabel Message;
+	private JTextField Isbn;
+	private JTextField Name;
+	private JTextArea Reason;
+	private JButton button_Ok;
 
 	/**
 	 * Create the dialog.
@@ -47,30 +43,30 @@ public class BorrowBookFinish extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
-			lblMessage = new JLabel("Success Borrowed!");
-			lblMessage.setFont(new Font("Tahoma", Font.PLAIN, 30));
+			Message = new JLabel("Success Borrowed!");
+			Message.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		}
 		
 		JLabel lblIsbn = new JLabel("ISBN");
 		
 		JLabel lblName = new JLabel("Name");
 		
-		txtIsbn = new JTextField();
-		txtIsbn.setEditable(false);
-		txtIsbn.setText("123");
-		txtIsbn.setColumns(10);
+		Isbn = new JTextField();
+		Isbn.setEditable(false);
+		Isbn.setText("123");
+		Isbn.setColumns(10);
 		
-		txtName = new JTextField();
-		txtName.setEditable(false);
-		txtName.setText("Book1");
-		txtName.setColumns(10);
+		Name = new JTextField();
+		Name.setEditable(false);
+		Name.setText("Book1");
+		Name.setColumns(10);
 		
-		txtReason = new JTextArea();
-		txtReason.setEditable(false);
-		txtReason.setWrapStyleWord(true);
-		txtReason.setLineWrap(true);
-		txtReason.setForeground(Color.RED);
-		txtReason.setText("We are sorry you cannot borrow this book, because this book is not in our library or has already been rented by other users. Please call our customer service 123-456-789.");
+		Reason = new JTextArea();
+		Reason.setEditable(false);
+		Reason.setWrapStyleWord(true);
+		Reason.setLineWrap(true);
+		Reason.setForeground(Color.RED);
+		Reason.setText("We are sorry you cannot borrow this book, because this book is not in our library or has already been rented by other users. Please call our customer service 123-456-789.");
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -79,36 +75,36 @@ public class BorrowBookFinish extends JDialog {
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addGap(42)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
-								.addComponent(txtReason, GroupLayout.PREFERRED_SIZE, 241, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblMessage)))
+								.addComponent(Reason, GroupLayout.PREFERRED_SIZE, 241, GroupLayout.PREFERRED_SIZE)
+								.addComponent(Message)))
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addGap(78)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_contentPanel.createSequentialGroup()
 									.addComponent(lblName)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(txtName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addComponent(Name, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_contentPanel.createSequentialGroup()
 									.addComponent(lblIsbn)
 									.addGap(11)
-									.addComponent(txtIsbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
+									.addComponent(Isbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
 					.addContainerGap(47, Short.MAX_VALUE))
 		);
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblMessage)
+					.addComponent(Message)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(txtReason)
+					.addComponent(Reason)
 					.addGap(18)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblIsbn)
-						.addComponent(txtIsbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(Isbn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblName)
-						.addComponent(txtName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(Name, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		contentPanel.setLayout(gl_contentPanel);
@@ -117,14 +113,14 @@ public class BorrowBookFinish extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
-				btnOk = new JButton("OK");
-				btnOk.setActionCommand("OK");
-				buttonPane.add(btnOk);
-				getRootPane().setDefaultButton(btnOk);
+				button_Ok = new JButton("OK");
+				button_Ok.setActionCommand("OK");
+				buttonPane.add(button_Ok);
+				getRootPane().setDefaultButton(button_Ok);
 			}
 		}
 
-		this.btnOk.addActionListener(new ActionListener(){
+		this.button_Ok.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
@@ -139,30 +135,27 @@ public class BorrowBookFinish extends JDialog {
 			setFailed(book);
 		}
 	}
-	
-	
-	
-	public void setSuccess(Book book) {
+public void setSuccess(Book book) {
 		if (book!=null){
-			this.lblMessage.setForeground(Color.BLACK);
-			this.lblMessage.setText("Success Borrowed!");
-			this.txtIsbn.setText(book.getIsbn());
-			this.txtName.setText(book.getBookName());
-			this.txtReason.setVisible(false);
+			this.Message.setForeground(Color.BLACK);
+			this.Message.setText("Success Borrowed!");
+			this.Isbn.setText(book.getIsbn());
+			this.Name.setText(book.getBookName());
+			this.Reason.setVisible(false);
 		}
 	}
 	
 	public void setFailed(Book book) {
-		this.lblMessage.setForeground(Color.RED);
-		this.lblMessage.setText("Borrow Failed!");
-		this.txtReason.setVisible(true);
+		this.Message.setForeground(Color.RED);
+		this.Message.setText("Borrow Failed!");
+		this.Reason.setVisible(true);
 		
 		if (book!=null){
-			this.txtIsbn.setText(book.getIsbn());
-			this.txtName.setText(book.getBookName());
+			this.Isbn.setText(book.getIsbn());
+			this.Name.setText(book.getBookName());
 		} else	{
-			this.txtIsbn.setText("");
-			this.txtName.setText("");
+			this.Isbn.setText("");
+			this.Name.setText("");
 		}
 	}
 }

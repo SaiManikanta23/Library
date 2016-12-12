@@ -11,12 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
-
-/**
- * Frame to display rented books to the customer and return the rented books.
- */
-
-
 public class CustomerReturnBook extends JFrame{
 
 	private static final long serialVersionUID = 1L;
@@ -30,11 +24,11 @@ public class CustomerReturnBook extends JFrame{
 	private add_Book_ToAccount library;
 	private User user;
 	
-	private JLabel lblMsg;
-	private JButton btnReturn, btnClose;
-	private JTable tbBooks;
-	private JPanel pnlLeft, pnlRight;
-	private PanelBookInfo pnlBookInfo;
+	private JLabel display_Message;
+	private JButton return_Button, close_Button;
+	private JTable books_Table;
+	private JPanel left_Panel, right_Panel;
+	private PanelBookInfo bookInfo;
 	private JScrollPane scrTbBook;
 	
 	private DefaultTableModel tbBooksModel;
@@ -51,65 +45,65 @@ public class CustomerReturnBook extends JFrame{
 		this.setLayout(null);
 		this.setLocation(350, 50);
 		
-		pnlLeft = new JPanel();
-		pnlLeft.setLayout(null);
+		left_Panel = new JPanel();
+		left_Panel.setLayout(null);
 		
-		pnlRight = new JPanel();
+		right_Panel = new JPanel();
 		
-		pnlBookInfo = new PanelBookInfo(library);
-		pnlBookInfo.setEditable(false);
+		bookInfo = new PanelBookInfo(library);
+		bookInfo.setEditable(false);
 		
-		lblMsg = new JLabel();
-		lblMsg.setText("Rented Books:");
-		lblMsg.setBounds(20, 20, 90, 30);
+		display_Message = new JLabel();
+		display_Message.setText("Rented Books:");
+		display_Message.setBounds(20, 20, 90, 30);
 		
-		btnReturn = new JButton("Return");
-		btnReturn.setBounds(80, 400, 75, 30);
+		return_Button = new JButton("Return");
+		return_Button.setBounds(80, 400, 75, 30);
 		
-		btnClose = new JButton("Close");
-		btnClose.setBounds(220, 400, 75, 30);
+		close_Button = new JButton("Close");
+		close_Button.setBounds(220, 400, 75, 30);
 		
 		tbBooksModel = new DefaultTableModel(
 				new Object[][]{},
 				TBBookColumnTitle
 		);
 		
-		tbBooks = new JTable();
-		tbBooks.setModel(tbBooksModel);
-		tbBooks.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tbBooks.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		books_Table = new JTable();
+		books_Table.setModel(tbBooksModel);
+		books_Table.setBorder(new LineBorder(new Color(0, 0, 0)));
+		books_Table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		//hide unnecessary columns
-		tbBooks.getColumnModel().getColumn(TBBook_BookObjColIndex).setMinWidth(0);
-		tbBooks.getColumnModel().getColumn(TBBook_BookObjColIndex).setMaxWidth(0);
-		tbBooks.getColumnModel().getColumn(TBBook_BookObjColIndex).setWidth(0);
+		books_Table.getColumnModel().getColumn(TBBook_BookObjColIndex).setMinWidth(0);
+		books_Table.getColumnModel().getColumn(TBBook_BookObjColIndex).setMaxWidth(0);
+		books_Table.getColumnModel().getColumn(TBBook_BookObjColIndex).setWidth(0);
 		
-		SelectionListener listener = new SelectionListener(tbBooks);
-		tbBooks.getSelectionModel().addListSelectionListener(listener);
+		SelectionListener listener = new SelectionListener(books_Table);
+		books_Table.getSelectionModel().addListSelectionListener(listener);
 		
-		scrTbBook=new JScrollPane(tbBooks);
+		scrTbBook=new JScrollPane(books_Table);
 		scrTbBook.setSize(200, 200);
 		scrTbBook.setBounds(20, 55, 380, 330);
 		
-		pnlLeft.add(scrTbBook);
-		pnlLeft.add(lblMsg);
-		pnlLeft.add(btnReturn);
-		pnlLeft.add(btnClose);
-		pnlLeft.setSize(600, 500);
-		pnlLeft.setBounds(5, 5, 400, 600);
+		left_Panel.add(scrTbBook);
+		left_Panel.add(display_Message);
+		left_Panel.add(return_Button);
+		left_Panel.add(close_Button);
+		left_Panel.setSize(600, 500);
+		left_Panel.setBounds(5, 5, 400, 600);
 		
-		pnlRight.setSize(500, 500);
-		pnlRight.setBounds(450, 20, 240, 400);
-		pnlRight.setLayout(new BorderLayout());
-		pnlRight.add(pnlBookInfo,BorderLayout.CENTER);
+		right_Panel.setSize(500, 500);
+		right_Panel.setBounds(450, 20, 240, 400);
+		right_Panel.setLayout(new BorderLayout());
+		right_Panel.add(bookInfo,BorderLayout.CENTER);
 		
 		this.setTitle("Return Book");
-		this.add(pnlLeft);
-		this.add(pnlRight);
+		this.add(left_Panel);
+		this.add(right_Panel);
 		this.setSize(720, 500);
 		this.setResizable(false);
 		this.setVisible(true);
 		
-		btnReturn.addActionListener(new ActionListener()
+		return_Button.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent ae){
 				if(getSelectedBook() == null){
@@ -132,7 +126,7 @@ public class CustomerReturnBook extends JFrame{
 			}
 		});
 		
-		btnClose.addActionListener(new ActionListener()
+		close_Button.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent ae){
 				CustomerReturnBook.this.dispose();
@@ -190,7 +184,7 @@ public class CustomerReturnBook extends JFrame{
 	}
 	
 	private Book getSelectedBook() {
-		JTable table = this.tbBooks;
+		JTable table = this.books_Table;
 		int selRow = table.getSelectedRow();
 		if(selRow < 0)
 			return null;
@@ -219,9 +213,9 @@ public class CustomerReturnBook extends JFrame{
         		}
                 Book book = getSelectedBook();
                 if (book == null)
-                	pnlBookInfo.clear();
+                	bookInfo.clear();
                 else
-                	pnlBookInfo.ReadFrom(book);
+                	bookInfo.ReadFrom(book);
             }
     }
 	

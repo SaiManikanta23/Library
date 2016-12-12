@@ -16,8 +16,8 @@ public class AdminLogin extends JFrame {
 		this(null);
 	}
 
-	public AdminLogin(Library lib) {
-		this.library = lib;
+	public AdminLogin(Library library) {
+		this.library = library;
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(600, 280);
 		this.setLocation(250, 40);

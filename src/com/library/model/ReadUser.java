@@ -2,10 +2,10 @@ package com.library.model;
 
 import com.library.controller.User;
 
-public class ReadFromParameter {
+public class ReadUser {
 	public User user;
 
-	public ReadFromParameter(User user) {
+	public ReadUser(User user) {
 		this.user = user;
 	}
 }

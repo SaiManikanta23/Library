@@ -116,6 +116,7 @@ public class CustomerLogin extends JFrame{
 		Library l = new Library();
 		User u1 = new User();
 		User u2 = new User();
+		User u3 = new User();
 		Book b1 = new Book();
 		Book b2 = new Book();
 		Book b3 = new Book();
@@ -139,6 +140,11 @@ public class CustomerLogin extends JFrame{
 		u2.setUserId(2);
 		u2.setPassword("123");
 		u2.setUserName("admin");
+		u2.setAdmin(true);
+		
+		u2.setUserId(3);
+		u2.setPassword("sai");
+		u2.setUserName("sai");
 		u2.setAdmin(true);
 		
 		l.addUser(u1);

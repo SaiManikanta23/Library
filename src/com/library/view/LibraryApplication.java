@@ -5,10 +5,10 @@ import com.library.controller.*;
 import com.library.model.*;
 import javax.swing.*; 
 import java.util.Date;
-public class FrmLibrary extends JFrame{
+public class LibraryApplication extends JFrame{
 	private static final long serialVersionUID = 1L;
 
-	Library Lib;
+	Library Library;
 	
 	JLabel label1 = new JLabel("Welcome to Our Library System ");
 	JLabel label2 = new JLabel("Log in as a:  ");
@@ -18,9 +18,9 @@ public class FrmLibrary extends JFrame{
 	JButton btnExit = new JButton("Exit");
 	JButton btnAbout = new JButton("About");
 	
-	public FrmLibrary(){
+	public LibraryApplication(){
 		
-		Lib = createDemoLibrary();
+		Library = createDemoLibrary();
 		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
@@ -59,7 +59,7 @@ public class FrmLibrary extends JFrame{
 		
 		btnAdmin.addActionListener(new java.awt.event.ActionListener() {
 	    public void actionPerformed(java.awt.event.ActionEvent evt) {
-	    	new AdminLogin(Lib);
+	    	new AdminLogin(Library);
 	    	}
 		});
 		
@@ -71,7 +71,7 @@ public class FrmLibrary extends JFrame{
 		
 		btnCustomer.addActionListener(new java.awt.event.ActionListener() {
 		    public void actionPerformed(java.awt.event.ActionEvent evt) {
-		       new CustomerLogin(Lib);
+		       new CustomerLogin(Library);
 		    }
 		});
 		
@@ -158,6 +158,6 @@ public class FrmLibrary extends JFrame{
 	}
 	
 	public static void main(String[] a){
-		new FrmLibrary();
+		new LibraryApplication();
 	}
 }

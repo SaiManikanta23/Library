@@ -10,13 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
-public class AddBooksOption extends JDialog {
+public class BooksOption extends JDialog {
 	private static final long serialVersionUID = 1L;
-	private AddBooksData data = new AddBooksData();
+	private BookImage data = new BookImage();
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public AddBooksOption(add_Book_ToAccount lib) {
-		this.data.library = lib;
+	public BooksOption(add_Book_ToAccount library) {
+		this.data.library = library;
 		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setTitle("Add book");
@@ -82,10 +82,14 @@ public class AddBooksOption extends JDialog {
 						data.picDirectory = readFD.getDirectory();
 						data.picFileName = readFD.getFile();
 						data.picPath = data.picDirectory + data.picFileName;
-						ImageIcon bookImgIcon = CreateStretchImageIcon(data.picPath,
+					//	ImageIcon bookImgIcon = CreateStretchImageIcon(data.picPath,
+						//		data.picturePanel.getWidth(),
+							//	data.picturePanel.getHeight());
+						
+						ImageIcon bookImgIcon =  com.library.view.BookImage.CreateStretchImageIcon(data.picPath,
 								data.picturePanel.getWidth(),
 								data.picturePanel.getHeight());
-						AddBooksOption.this.data.picLabel.setIcon(bookImgIcon);
+						BooksOption.this.data.picLabel.setIcon(bookImgIcon);
 					}
 				});
 
@@ -144,15 +148,15 @@ public class AddBooksOption extends JDialog {
 					} catch (Exception ex) {
 												System.out.println("No picture selected.");
 					} finally {
-						JOptionPane.showMessageDialog(AddBooksOption.this,
+						JOptionPane.showMessageDialog(BooksOption.this,
 								"New book added.", "OK",
 								JOptionPane.PLAIN_MESSAGE);
-						AddBooksOption.this.dispose(); 
+						BooksOption.this.dispose(); 
 					}
 
 				}
 				else {
-					JOptionPane.showMessageDialog(AddBooksOption.this,
+					JOptionPane.showMessageDialog(BooksOption.this,
 							"Invaild book information!", "Error",
 							JOptionPane.ERROR_MESSAGE);
 				}
@@ -162,7 +166,7 @@ public class AddBooksOption extends JDialog {
 		data.close.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AddBooksOption.this.dispose();
+				BooksOption.this.dispose();
 			}
 		});
 	}
@@ -174,8 +178,8 @@ public class AddBooksOption extends JDialog {
 	/**
 	 * @deprecated Use {@link com.library.view.AddBooksData#CreateStretchImageIcon(String,int,int)} instead
 	 */
-	private ImageIcon CreateStretchImageIcon(String imgPath, int width,
-			int height) {
-				return data.CreateStretchImageIcon(imgPath, width, height);
-			}
+	//private ImageIcon CreateStretchImageIcon(String imgPath, int width,
+		//	int height) {
+			//	return data.CreateStretchImageIcon(imgPath, width, height);
+			//}
 }

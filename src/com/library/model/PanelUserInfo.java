@@ -9,10 +9,6 @@ import javax.swing.border.*;
 
 import com.library.controller.User;
 
-
-/**
- * Panel to show Customer Infos
- */
 public class PanelUserInfo extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -23,17 +19,17 @@ public class PanelUserInfo extends JPanel {
 			"Admin"
 	};
 	
-	private JLabel lblUserType;
+	private JLabel UserType;
 	public JComboBox<?> cmbUserType;
 	private JLabel lblId;
 	public JTextField txtId;
-	private JLabel lblName;
+	private JLabel labelName;
 	public JTextField txtName;
-	private JLabel lblPassword;
+	private JLabel labelPassword;
 	public JTextField txtPassword;
-	private JLabel lblPhoneNo;
+	private JLabel label_PhoneNum;
 	public JTextField txtPhoneNo;
-	private JLabel lblAddress;
+	private JLabel label_Address;
 	public JTextArea txtAddress;
 		
 	public boolean isAdmin() {
@@ -74,26 +70,26 @@ public class PanelUserInfo extends JPanel {
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblName = new JLabel("Name");
-		panel_2.add(lblName);
+		labelName = new JLabel("Name");
+		panel_2.add(labelName);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblPassword = new JLabel("Password");
-		panel_3.add(lblPassword);
+		labelPassword = new JLabel("Password");
+		panel_3.add(labelPassword);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblAddress = new JLabel("Address");
-		panel_4.add(lblAddress);
+		label_Address = new JLabel("Address");
+		panel_4.add(label_Address);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblPhoneNo = new JLabel("Phone");
-		panel_5.add(lblPhoneNo);
+		label_PhoneNum = new JLabel("Phone");
+		panel_5.add(label_PhoneNum);
 		
 		txtPhoneNo = new JTextField();
 		txtPhoneNo.setColumns(10);
@@ -149,8 +145,8 @@ public class PanelUserInfo extends JPanel {
 		txtId.setColumns(10);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		lblUserType = new JLabel("User Type");
-		panel.add(lblUserType);
+		UserType = new JLabel("User Type");
+		panel.add(UserType);
 		
 		cmbUserType = new JComboBox<Object>(strUserType);
 		panel.add(cmbUserType);
@@ -174,14 +170,14 @@ public class PanelUserInfo extends JPanel {
 	/**
 	 * Load information from book, fill the attribute boxes.
 	 * @param user
-	 * @deprecated Use {@link #ReadFrom(ReadFromParameter)} instead
+	 * @deprecated Use {@link #ReadFrom(ReadUser)} instead
 	 */
 
 	/**
 	 * Load information from book, fill the attribute boxes.
 	 * @param parameterObject TODO
 	 */
-	public void ReadFrom(ReadFromParameter parameterObject) {
+	public void ReadFrom(ReadUser parameterObject) {
 		if (parameterObject.user==null)
 			return;
 		

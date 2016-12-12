@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 import com.library.controller.add_Book_ToAccount;
 
-public class AddBooksData {
+public class BookImage {
 	public JPanel picturePanel;
 	public JButton choosePic;
 	public JButton add;
@@ -34,10 +34,10 @@ public class AddBooksData {
 	public String picFileName;
 	public add_Book_ToAccount library;
 
-	public AddBooksData() {
+	public BookImage() {
 	}
 
-	ImageIcon CreateStretchImageIcon(String imgPath, int width, int height) {
+	static ImageIcon CreateStretchImageIcon(String imgPath, int width, int height) {
 		BufferedImage img = null;
 		try {
 			img = ImageIO.read(new File(imgPath));

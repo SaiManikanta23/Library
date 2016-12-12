@@ -44,7 +44,7 @@ public class BooksManagement extends JFrame {
 	JLabel lAuthor;
 	JTextField tAuthor;
 	JTable table;
-	DefaultTableModel dtm;
+	DefaultTableModel table_Model;
 	JButton btnAdd;
 	JButton btnUpdate;
 	JButton btnDelete;
@@ -57,7 +57,7 @@ public class BooksManagement extends JFrame {
 	public void Refresh(){
 		int j = table.getRowCount();
 		for (int i = 0; i < j; i++) {
-			dtm.removeRow(0);
+			table_Model.removeRow(0);
 		}
 		ArrayList<Book> books = null;
 		
@@ -83,7 +83,7 @@ public class BooksManagement extends JFrame {
 		int nBook = books.size();
 
 		for (int i = 0; i < nBook; i++) {
-			dtm.addRow(createBookTableRowData(books.get(i)));
+			table_Model.addRow(createBookTableRowData(books.get(i)));
 		}
 	}
 	
@@ -101,8 +101,8 @@ public class BooksManagement extends JFrame {
 		String columnNames[] = { "bookName", "author", "isbn", "lastRented",
 				"AddedDate", "isRented", "ownerId", "category" };
 
-		dtm = new DefaultTableModel(rowData, columnNames);
-		table = new JTable(dtm);
+		table_Model = new DefaultTableModel(rowData, columnNames);
+		table = new JTable(table_Model);
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(50, 50, 600, 400);
@@ -204,7 +204,7 @@ public class BooksManagement extends JFrame {
 
 		btnAdd.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				AddBooksOption n = new AddBooksOption(BooksManagement.this.library);
+				BooksOption n = new BooksOption(BooksManagement.this.library);
 				n.setModal(true);
 				n.setVisible(true); 
 				Refresh();
@@ -217,10 +217,6 @@ public class BooksManagement extends JFrame {
 					JOptionPane.showMessageDialog(BooksManagement.this, "Please select a book to delete!", "Delete Fail", JOptionPane.INFORMATION_MESSAGE);
 					return;
 				}
-				
-				//******************************
-				
-			
 				if(!BooksManagement.this.library.deleteBook(table.getValueAt(
 						row, 2).toString()))
 				{

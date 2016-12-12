@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class FrmViewCategories extends JFrame {
+public class ViewCategories extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	private final String StrCategories = "Children\nCooking\nHistory\nTravel";
 	
-	public FrmViewCategories(){
+	public ViewCategories(){
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		this.setTitle("Book Categories");
